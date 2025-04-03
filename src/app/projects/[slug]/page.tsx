@@ -13,7 +13,6 @@ import { AiFillPlusCircle } from 'react-icons/ai';
 import {
   DragDropContext,
   Draggable,
-  DropResult,
   Droppable,
 } from 'react-beautiful-dnd';
 
@@ -120,7 +119,7 @@ const ProjectItem = () => {
   const toggleAddFeatureForm = () =>
     setIsAddFeatureFormVisible(prevState => !prevState);
 
-  const onDragEnd = async (result: DropResult) => {
+  const onDragEnd = async (result: any) => {
     const { source, destination, type } = result;
     if (!destination) return;
 
@@ -235,7 +234,7 @@ const ProjectItem = () => {
           direction='horizontal'
           type='status'
         >
-          {provided => (
+          {(provided: any) => (
             <div
               {...provided.droppableProps}
               ref={provided.innerRef}
@@ -249,7 +248,7 @@ const ProjectItem = () => {
                     draggableId={projectBoard.id}
                     index={idx}
                   >
-                    {provided => (
+                    {(provided: any) => (
                       <div
                         ref={provided.innerRef}
                         {...provided.draggableProps}
@@ -265,7 +264,7 @@ const ProjectItem = () => {
                         />
 
                         <Droppable droppableId={projectBoard.id} type='feature'>
-                          {provided => (
+                          {(provided: any) => (
                             <div
                               ref={provided.innerRef}
                               {...provided.droppableProps}
@@ -276,7 +275,7 @@ const ProjectItem = () => {
                                   draggableId={feature.id}
                                   index={idx}
                                 >
-                                  {provided => (
+                                  {(provided: any) => (
                                     <div
                                       ref={provided.innerRef}
                                       {...provided.dragHandleProps}
